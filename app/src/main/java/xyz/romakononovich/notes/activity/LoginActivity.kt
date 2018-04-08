@@ -16,7 +16,11 @@ import kotlinx.android.synthetic.main.activity_login.*
 import xyz.romakononovich.notes.Constants.PIN
 import xyz.romakononovich.notes.R
 import android.widget.ImageView
+import com.crashlytics.android.Crashlytics
+import io.fabric.sdk.android.Fabric
 import xyz.romakononovich.notes.BaseActivity
+
+
 
 
 /**
@@ -32,6 +36,7 @@ class LoginActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Fabric.with(this, Crashlytics())
         setupActionBar {
             setDisplayShowTitleEnabled(false)
         }
