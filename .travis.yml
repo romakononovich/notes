@@ -1,0 +1,67 @@
+language: android
+sudo: required
+jdk: oraclejdk8
+before_cache:
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
+env:
+  global:
+  - ANDROID_API=26
+  - EMULATOR_API=21
+  - ANDROID_BUILD_TOOLS=26.0.2
+  - ADB_INSTALL_TIMEOUT=5
+  - secure: ZHkbZ31lYZCQ+PXlPHtc+HbaiJpc9WUWEEvBhWxQHroZzMR4w1IvCMp38AmlQO6EjSiwVnCbVWBSgSW3oWAGp1Wc/4CxKpnIHqz4mp7hbumYZItzZ8V11P8G0xGCDXgdz6+Sx3De5cPMYq/4WOldw8PWvlI3MzSfORtX8ayPEvr6QR288TpSolUR1i8iZv7ZfL+AVEFzsRLqdIqfjxyfykSbRsISMSxod/CX5xUNLvbMV+oZ9/+7tG/Ov7TI9T5i7LYVYbSZhatWwaqQKRFK/T3n6WVHqBKFJUDQQsNOW+WxSVG3AW3ejA0+F7Kr8btDoDdf+G1bKrxErkww34QMFWUhSk8e19yf6PlU7R6/m/KCTrA4VecEdBbrU1A2mXhDCpE2UWLSakaCPYxC2MM8cjnxtz7FjCoZdyUDVx4B1+t+Ww9wepB9f7U8AJPTXBYCF729Tm7vDkcZDod6NEGXI6FtmCO5ohsbZJ72SVKkXSvNmKJgM9HE62eHxzHdn1puHPGwXyyR9uTGb6/Ux8W5JsEPKfRSfw17w/BE2D83LNhGVFdvZZLcfrVnv2oejOCX6uD4sgjur1Nx/gl9rmyx8WPMNoiYcz1zA7jEYZJlclYC9S0mG5RH5M512m5a4Olgs+Ud8nBEhw6UaR+X1PD+bTiEMuAF66IbAkzwB71wJis=
+  - secure: S5h4yBGrSsNw4JY3+cPl3GgoU/WbgEAZUkvqcbHrDuNUNowUhy0rGZOqFjM6SYv370Z765dPA/TZTOK7JRajjimpZnVsy2EwG/Sj3Fvrvs45ix5H3iQLOOnxeuKq74Bl/Jtf/Zvsk7BsIMlHNi8GOM631VwW6FnNgnBhJYISKdMPbBETS2ljRQSJc1ylmYFk/owDdXj6+AMMeN5g157iU1ww77Ivro+JCUK8DqGmcWJ+aWUsWdTvS/MYyc6BORTGokEo1lofCQbDE0AGENkQ4G9hf3LxkKSFD59iHy9Dqb1eA1x33HoUw2PzkuthFVsTjUSWMBGmt1XAyXmyjJJjpbP/hZK/FKoCWHf6ktf9Ugds2lTkMKr9l3eOCqN5g+eCCcioHrBdcTDv3Fyy3JYjNr2We5ipaTzLoxhF6mQEUnKheRoxIYFXSZ8xbQ2HaeBnza/0t/OEORekC51XKhIX+eF3eDTIn2tbAzSX6rizukEh8k+6EsnII1U6Yb1AO9elKxMbqcGvKHZFmpz+cZ9RbnETrcpEYQrHCjvnyf5JoEKScUvads43lonlUq3VO+3nJwswHeZgcFWI5ycNLVElYcIEBuX9Q7Oe+anmSl/paUtNgpb1n/BOfBtamubQTGV9itFm1f3gPK6YuS9leDFEjdQqW8nRvTw9O/ScNz7JPVY=
+  - secure: mVOMUAQtV2PrTUT3LObOh7sJEDywVR4LdX2pttCorLQLt1z6pvcdQGblqIZCuNsCOu7hjgv+Ffqf0wlTh7Lo2OYEVcbvEhDBVbBEhJv/27CBz9U0v7QyQtoCx1kfEesL1rwq8408itwv14pTkEdgO0Sn8jqHbpGHEt2qZiJmUtU0m7eBkYBkj1g7MsCrGpZT5f6cv1XeL3PdEfi4PXN1EAVbmNEDTGWJBerc63gRx+GXkYsvbziQLpfTXKQTNsbLFu8TQ8+ly9GWk3MFh7C/AlK6l84nU2ZvoO64V+aXBQyMdaLqPmFkKH0p6dWgIc+Ruz4MBvByneIDWW0AcKUDv/ADzO6rxJbPacnZzPRM/qbEaxSg/DL2s/qER3DIXWpxWXQE3znRnZEKvKzeMtCQLBgbAGusrCeD0e7y/Z8dYW9ffNtzjwb8SgyRIdKHLmeTSowOQa5jcRdLHbLZfjT7cO7+zmGnVW7Ax6SPbNytd2fvBhEiNepM09LU5zCySmspzIASHtXXrSNehR0I8a/s/jxZ5lHBsFVMaVWLuZ8fmyAwzXFsfjQCqtqIDp/MQPgvV8mlkmaXUG6VBvNw0DEL5Le0OSpM7L8RlPC9wURPwfkfQw7UDLAjZE7HoGFvM2HKHlYUHbBDebUb99kiKuWNR7ZI9upAmrD3kwYjON4B47E=
+android:
+  components:
+  - tools
+  - platform-tools
+  - build-tools-$ANDROID_BUILD_TOOLS
+  - android-$ANDROID_API
+  - android-$EMULATOR_API_LEVEL
+  - extra-google-m2repository
+  - extra-android-m2repository
+  - addon-google_apis-google-19
+  - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API_LEVEL
+  - sys-img-armeabi-v7a-addon-google_apis-google-$EMULATOR_API_LEVEL
+  licenses:
+  - android-sdk-preview-license-.+
+  - android-sdk-license-.+
+  - google-gdk-license-.+
+before_install:
+- openssl aes-256-cbc -K $encrypted_bf364cab31c0_key -iv $encrypted_bf364cab31c0_iv
+  -in test.jks.enc -out test.jks -d
+- mkdir "$ANDROID_HOME/licenses" || true
+- echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
+- echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
+- chmod +x gradlew
+- "./gradlew dependencies || true"
+before_script:
+- echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
+- emulator -avd test -no-skin -no-audio -no-window &
+- android-wait-for-emulator
+- adb shell input keyevent 82 &
+script:
+- "./gradlew clean build connectedCheck -PdisablePreDex --stacktrace"
+before_deploy:
+- cp $TRAVIS_BUILD_DIR/.keystore $HOME
+- cd app/build/outputs/apk/
+- jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $HOME/test.jks
+  -storepass $storepass -keypass $keypass app-release-unsigned.apk romakononovich
+- jarsigner -verify app-release-unsigned.apk
+- "${ANDROID_HOME}/build-tools/26.0.2/zipalign -v 4 app-release-unsigned.apk note.apk"
+deploy:
+  provider: releases
+  file: note.apk
+  skip_cleanup: true
+  on:
+    repo: romakononovich/notes
+    tags: true
+    jdk: oraclejdk8
+api_key: 
+    secure: ltBlhbf6NbyGeXNcQ4NBVM7zcMlKMAroRal5k/yo2exZQ3rv5KyHJhHfkHHDqMjqRliryrM2wx+tKje8xcQazZS255CazVDXed6gUPYXnA8QEW2O/l8BTrwP9X6zkDjpBPcvs+SFc4+bv0oUHzduPFOtz0blheMnlBjfllbEWy1doqAsvYPCclxeo+arfQcGJbUq1MA5hmRrsohaQ5NJFiISGFfOIXi1PWw91L46k0+TobHnJrFbvjsRkZ8/V8BFh+aPIuaXFDd6ynL6G4Nm/o9miANPLN94GPMMmPCjXOSNxbE8RpJ6Ah/PSC7Xwv7VtIZbntvXpy8BkexUyW4xdUAd+tEoZUYhonwQtlRcUacfXS4joUcW1KcPz1wcAwGV8/kQXhZw0D23rYUWNW+tpEy6vUfUjXPg9CYhNyu7HimTtA3jCrz0hQOli4Dn83YBwYYoPmZ+C7SFXBb51o7gDAa80+iD4e7X0X0Em1vYQzI/wwuswXDjfjRQ5OH7K6t5bzT2IayDZQGD9mrW3cdibRFX8dQrKoPjGK4ezGCe3DM4in1WBAv+f+QIPTsSvKPl4Nn5iR5tSng8pqdbZsZIlHEpf+tG+53M9xWMlJDpjnGcEwhxKrQTt1soodPs9PW4h2R9zkZaBD0RC7jeb/aUWm+5fyy3bjiUy0zC9ddgt14=
